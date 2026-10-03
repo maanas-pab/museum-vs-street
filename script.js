@@ -74,3 +74,66 @@ function renderHouses(n = 170) {
   el.textContent = "🏠".repeat(Math.round(n));
   if (cap) cap.textContent = `${fmt.int(n)} median houses ($412k each) = $70M. A median worker buys 0.15 houses/year.`;
 }
+
+function wireCalculator(nowPrice = DEFAULTS.now_price) {
+  const btn = document.getElementById("calc-btn");
+  const input = document.getElementById("my-wage");
+  const out = document.getElementById("calc-out");
+  if (!btn || !input || !out) return;
+  const run = () => {
+    const wage = Number(input.value) || DEFAULTS.now_annual_median;
+    const years = nowPrice / wage;
+    const loaves = nowPrice / DEFAULTS.now_loaf;
+    const houses = nowPrice / DEFAULTS.now_house;
+    const lifetimes = years / 45;
+    out.innerHTML =
+      `At <strong>$${fmt.int(wage)}/yr</strong>: ` +
+      `<strong>${fmt.int(years)} years</strong> (${fmt.int(years * 260)} workdays) for one $70M Van Gogh. ` +
+      `That's <strong>${lifetimes.toFixed(1)} working lifetimes</strong>, ` +
+      `<strong>${fmt.int(loaves)} loaves</strong>, <strong>${fmt.int(houses)} houses</strong>. 🫠`;
+  };
+  btn.addEventListener("click", run);
+  run();
+}
+
+function wireBread(loavesThen, loavesNow) {
+  const slider = document.getElementById("bread-scale");
+  const out = document.getElementById("bread-scale-out");
+  const logBox = document.getElementById("bread-log");
+  if (!slider) {
+    renderBread(loavesThen, loavesNow, 5000, 120);
+    return;
+  }
+  const update = () => {
+    const per = Number(slider.value);
+    if (out) out.textContent = fmt.int(per);
+    const cap = logBox && logBox.checked ? 120 : 5000;
+    renderBread(loavesThen, loavesNow, per, cap);
+  };
+  slider.addEventListener("input", update);
+  if (logBox) logBox.addEventListener("change", update);
+  update();
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const j = await loadFigures();
+  let d = DEFAULTS;
+  if (j) {
+    d = {
+      then_price: j.then_1885.comparable_sale.price_usd_1890_approx,
+      then_daily: j.then_1885.worker_wage.daily_usd,
+      then_annual: j.then_1885.worker_wage.annual_usd_approx,
+      then_loaf: j.then_1885.bread.price_per_loaf_usd,
+      now_price: j.now_2026.benchmark_price_usd,
+      now_weekly_median: j.now_2026.worker_wage.median_weekly_usd,
+      now_annual_median: j.now_2026.worker_wage.median_annual_usd,
+      now_loaf: j.now_2026.bread.price_per_loaf_usd,
+      now_house: j.now_2026.house.price_usd,
+      then_house: j.then_1885.house.price_usd_approx,
+    };
+  }
+  const k = derived(d);
+  wireBread(k.thenLoaves, k.nowLoaves);
+  renderHouses(k.nowHouses);
+  wireCalculator(d.now_price);
+});
