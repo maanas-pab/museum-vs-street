@@ -1,0 +1,20 @@
+# ---> macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ---> Node / tooling (future-proof; site itself has zero deps)
+node_modules/
+dist/
+.parcel-cache/
+
+# ---> Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ---> Logs
+*.log
+npm-debug.log*
