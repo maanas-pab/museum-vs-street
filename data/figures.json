@@ -1,0 +1,69 @@
+{
+  "painting": {
+    "title": "The Potato Eaters",
+    "artist": "Vincent van Gogh",
+    "year": 1885,
+    "place": "Nuenen, Netherlands",
+    "medium": "Oil on canvas, 82 x 114 cm",
+    "holding": "Van Gogh Museum, Amsterdam (Vincent van Gogh Foundation)"
+  },
+  "then_1885": {
+    "label": "1885 — The Museum (at creation)",
+    "sale_status": "Unsold in Van Gogh's lifetime",
+    "comparable_sale": {
+      "work": "The Red Vineyard (1888), the only painting Van Gogh sold through a show in his lifetime",
+      "sold": "1890, Brussels, to Anna Boch",
+      "price_francs": 400,
+      "price_usd_1890_approx": 80,
+      "note": "Used as the era's market-price anchor. The Potato Eaters itself never sold."
+    },
+    "worker_wage": {
+      "daily_usd": 1.5,
+      "daily_range_usd": [1.35, 1.75],
+      "annual_usd_approx": 450,
+      "basis": "US farm hand ~$1.50-1.75/day excl. board; manufacturing ~$1.44-1.61/day (Weeks/Aldrich reports, 1885). Dutch day-labourer ~ƒ1/day (~$0.40). We use the US figure as the 'street' anchor and show the Dutch figure in METHODS.md.",
+      "workdays_per_year_assumed": 300
+    },
+    "bread": {
+      "price_per_loaf_usd": 0.05,
+      "note": "US 4-5¢/lb loaf typical mid-1880s (city bakery). Used for stack visual."
+    },
+    "house": {
+      "price_usd_approx": 2000,
+      "note": "Typical modest US wood-frame house $1,000-2,500 mid-1880s. Used for house visual."
+    }
+  },
+  "now_2026": {
+    "label": "2026 — The Street (today)",
+    "benchmark_price_usd": 70000000,
+    "benchmark_note": "Representative major-Van Gogh auction/private benchmark (~$70M). For context: record is $117.2M Orchard with Cypresses (Christie's NY, Nov 2022); $81.3M Laboureur dans un champ (2017); $71.5M Self-Portrait Without Beard (1998); ~$70M private offer reported for Vase with Daisies and Poppies (NYT, 2023). The Potato Eaters itself is collection-held and priceless.",
+    "worker_wage": {
+      "median_weekly_usd": 1204,
+      "median_annual_usd": 62608,
+      "mean_annual_usd": 69770,
+      "basis": "BLS Current Population Survey 2025 annual avg: $1,204/wk full-time median ($1,089 women / $1,326 men). BLS OEWS May 2025 mean: $69,770. We visualise the median.",
+      "source_year": 2025
+    },
+    "bread": {
+      "price_per_loaf_usd": 3.0,
+      "note": "US average sandwich loaf ~$2.50-3.00 in 2025-26. We use $3.00 and label it."
+    },
+    "house": {
+      "price_usd": 412000,
+      "note": "Approx. US median existing-home price 2025 (~$410-415k). We use $412k and label it."
+    }
+  },
+  "derived": {
+    "then_painting_in_workdays": 53,
+    "then_painting_in_years": 0.18,
+    "then_painting_in_loaves": 1600,
+    "then_annual_wage_in_loaves": 9000,
+    "now_painting_in_years_median": 1118,
+    "now_painting_in_workdays": 290680,
+    "now_painting_in_loaves": 23333333,
+    "now_annual_wage_in_loaves": 20869,
+    "now_painting_in_houses": 170,
+    "now_annual_wage_in_houses": 0.15,
+    "formula_note": "workdays = price / daily wage; years = price / annual wage; loaves = price / loaf price; houses = price / house price. Rounded for display; exact math lives in script.js."
+  }
+}
