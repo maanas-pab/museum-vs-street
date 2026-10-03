@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Museum vs. The Street — What a Van Gogh Costs in Bread &amp; Houses</title>
+  <meta name="description" content="Pop-art infographic: Van Gogh's Potato Eaters (1885) vs worker wages then, and a $70M Van Gogh benchmark vs wages now. Visualised as bread and houses." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="masthead">
+    <p class="kicker">MUSEUM vs. THE STREET · A POP-ART INFOGRAPHIC</p>
+    <h1>How many loaves<br />is a <span class="hl">Van Gogh</span>?</h1>
+    <p class="sub">Nuenen, 1885 → today. Same painting family, two different worlds.</p>
+  </header>
+
+  <main>
+    <section class="panels">
+      <article class="panel then" aria-labelledby="then-h">
+        <h2 id="then-h">1885 · The Potato Eaters</h2>
+        <p class="tag">Unsold · worth ~2 months' wages</p>
+        <div class="big-number"><span id="then-price">$80</span><small>era market anchor*</small></div>
+        <ul class="facts">
+          <li>Worker: <strong id="then-wage">$1.50 / day</strong></li>
+          <li>Bread: <strong>5¢ / loaf</strong></li>
+          <li>Painting ≈ <strong id="then-loaves">1,600 loaves</strong></li>
+        </ul>
+        <div class="bar" aria-hidden="true"><div class="fill then-fill" style="width: 8%"></div></div>
+      </article>
+
+      <article class="panel now" aria-labelledby="now-h">
+        <h2 id="now-h">2026 · A major Van Gogh</h2>
+        <p class="tag">Auction benchmark · 1,118 years' wages</p>
+        <div class="big-number"><span id="now-price">$70M</span><small>representative benchmark*</small></div>
+        <ul class="facts">
+          <li>Worker: <strong>$1,204 / week median</strong></li>
+          <li>Bread: <strong>$3.00 / loaf</strong></li>
+          <li>Painting ≈ <strong>23.3M loaves</strong></li>
+        </ul>
+        <div class="bar" aria-hidden="true"><div class="fill now-fill" style="width: 100%"></div></div>
+      </article>
+    </section>
+
+    <section id="viz">
+      <h2>Bread-stack visualiser</h2>
+      <p>Each 🍞 = loaves. Drag the slider.</p>
+      <div id="bread-viz"></div>
+    </section>
+
+    <section id="houses">
+      <h2>House visualiser</h2>
+      <div id="house-viz"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>* Then: 400 francs (Red Vineyard sale, 1890) ≈ $80. Now: ~$70M benchmark (record $117.2M, 2022). See METHODS.md.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
