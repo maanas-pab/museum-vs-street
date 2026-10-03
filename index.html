@@ -43,44 +43,111 @@
 
     <section class="panels">
       <article class="panel then" aria-labelledby="then-h">
-        <h2 id="then-h">1885 · The Potato Eaters</h2>
-        <p class="tag">Unsold · worth ~2 months' wages</p>
-        <div class="big-number"><span id="then-price">$80</span><small>era market anchor*</small></div>
+        <h2 id="then-h">🥔 1885 · The Potato Eaters</h2>
+        <p class="tag">Nuenen · Unsold · worth ~2 months' wages</p>
+        <div class="big-number"><span id="then-price">$80</span><small>era market anchor = 400 francs*</small></div>
         <ul class="facts">
-          <li>Worker: <strong id="then-wage">$1.50 / day</strong></li>
-          <li>Bread: <strong>5¢ / loaf</strong></li>
-          <li>Painting ≈ <strong id="then-loaves">1,600 loaves</strong></li>
+          <li>👷 Worker: <strong id="then-wage">$1.50 / day · $450 / yr</strong></li>
+          <li>🍞 Bread: <strong>5¢ / loaf → day's pay = 30 loaves</strong></li>
+          <li>🏠 House: <strong>~$2,000 → year's pay = ¼ house</strong></li>
+          <li>🎨 Painting ≈ <strong id="then-loaves">1,600 loaves · 0.04 houses</strong></li>
         </ul>
-        <div class="bar" aria-hidden="true"><div class="fill then-fill" style="width: 8%"></div></div>
+        <div class="bar" aria-hidden="true"><div class="fill then-fill" style="width: 6%"></div></div>
+        <p class="micro">Anchor: <em>The Red Vineyard</em> (1888), the one show-sale of his life, 400 fr to Anna Boch, Brussels 1890. Dutch day-labour was ~ƒ1/day — even cheaper. See METHODS.</p>
       </article>
 
       <article class="panel now" aria-labelledby="now-h">
-        <h2 id="now-h">2026 · A major Van Gogh</h2>
-        <p class="tag">Auction benchmark · 1,118 years' wages</p>
-        <div class="big-number"><span id="now-price">$70M</span><small>representative benchmark*</small></div>
+        <h2 id="now-h">⚡ 2026 · A major Van Gogh</h2>
+        <p class="tag hot">Auction benchmark · 1,118 years' wages</p>
+        <div class="big-number"><span id="now-price">$70M</span><small>representative benchmark (record $117.2M)*</small></div>
         <ul class="facts">
-          <li>Worker: <strong>$1,204 / week median</strong></li>
-          <li>Bread: <strong>$3.00 / loaf</strong></li>
-          <li>Painting ≈ <strong>23.3M loaves</strong></li>
+          <li>👷 Worker: <strong>$1,204 / wk median · $62,608 / yr</strong></li>
+          <li>🍞 Bread: <strong>$3.00 / loaf → day's pay ≈ 80 loaves</strong></li>
+          <li>🏠 House: <strong>$412k median → year's pay = 0.15 houses</strong></li>
+          <li>🎨 Painting ≈ <strong>23.3M loaves · 170 houses</strong></li>
         </ul>
         <div class="bar" aria-hidden="true"><div class="fill now-fill" style="width: 100%"></div></div>
+        <p class="micro">Record: <em>Orchard with Cypresses</em> $117.2M (Christie's NY, Nov 2022). $70M is the conservative "big Van Gogh moves" number (cf. $81.3M 2017, $71.5M 1998).</p>
       </article>
     </section>
 
-    <section id="viz">
-      <h2>Bread-stack visualiser</h2>
-      <p>Each 🍞 = loaves. Drag the slider.</p>
-      <div id="bread-viz"></div>
+    <section class="viz-card" id="bread-section" aria-labelledby="bread-h">
+      <div class="viz-head">
+        <h2 id="bread-h">🍞 Bread-stack visualiser</h2>
+        <p>One loaf icon = a fixed chunk of loaves. Same scale logic, wildly different stacks.</p>
+        <div class="controls">
+          <label>Loaves per 🍞 icon:
+            <input type="range" id="bread-scale" min="50" max="500000" step="50" value="5000" />
+            <output id="bread-scale-out" for="bread-scale">5,000</output>
+          </label>
+          <label class="check"><input type="checkbox" id="bread-log" checked /> cap icons at 120 (log hint)</label>
+        </div>
+      </div>
+      <div class="bread-grid">
+        <div>
+          <h3>1885 painting <span class="pill">1,600 loaves</span></h3>
+          <div id="bread-then" class="loaf-wall" aria-label="Bread icons for 1885 painting"></div>
+          <p class="micro" id="bread-then-cap"></p>
+        </div>
+        <div>
+          <h3>Today painting <span class="pill hot">23,333,333 loaves</span></h3>
+          <div id="bread-now" class="loaf-wall tall" aria-label="Bread icons for today's painting"></div>
+          <p class="micro" id="bread-now-cap"></p>
+        </div>
+        <div>
+          <h3>A year's pay, then vs now</h3>
+          <div class="mini-bars">
+            <div><span>1885 · 9,000 loaves</span><div class="bar"><div class="fill then-fill" id="bread-wage-then" style="width:43%"></div></div></div>
+            <div><span>Today · 20,869 loaves</span><div class="bar"><div class="fill now-fill" id="bread-wage-now" style="width:100%"></div></div></div>
+          </div>
+          <p class="micro">Workers can buy ~2.3× more bread today — but paintings outran bread by ~14,500×.</p>
+        </div>
+      </div>
     </section>
 
-    <section id="houses">
-      <h2>House visualiser</h2>
-      <div id="house-viz"></div>
+    <section class="viz-card" id="house-section" aria-labelledby="house-h">
+      <div class="viz-head">
+        <h2 id="house-h">🏠 House visualiser</h2>
+        <p>How many median houses does it take?</p>
+      </div>
+      <div class="house-grid">
+        <div class="house-col">
+          <h3>1885 · $80 painting</h3>
+          <div class="house-row"><span class="house frac">🏠</span><span class="frac-note">× 0.04 — a corner of a house</span></div>
+          <div class="bar"><div class="fill then-fill" style="width:4%"></div></div>
+          <p class="micro">A year's wage ($450) = ~0.22 houses. Saving was plausible.</p>
+        </div>
+        <div class="house-col">
+          <h3>Today · $70M painting</h3>
+          <div id="house-now" class="house-wall" aria-label="House icons for today's painting"></div>
+          <p class="micro" id="house-now-cap">170 median houses ($412k each). Rendered as 170 🏠 icons.</p>
+          <div class="bar"><div class="fill now-fill" style="width:100%"></div></div>
+          <p class="micro">A year's median wage ($62,608) = 0.15 houses. The painting = 1,118 work-years.</p>
+        </div>
+      </div>
+      <div class="calc">
+        <h3>🧮 Try it: years of YOUR wage for this painting?</h3>
+        <label>Your annual pay (USD): <input type="number" id="my-wage" value="62608" min="1000" step="1000" /></label>
+        <button id="calc-btn" type="button">POW! Calculate</button>
+        <p id="calc-out" class="calc-out" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="sources-strip">
+      <h2>Receipts 🧾</h2>
+      <ol>
+        <li><strong>Painting then:</strong> Van Gogh Museum (Potato Eaters, Apr–May 1885, Nuenen); Red Vineyard sale 400 fr via Art Newspaper / Open Culture.</li>
+        <li><strong>Wages then:</strong> Missouri Library Guide 1880–89; NBER Aldrich/Bulletin 18; US State Dept <em>Money and Prices</em> vol. 8 (Netherlands p.54).</li>
+        <li><strong>Price now:</strong> $117.2M record (Guinness / Christie's, 9 Nov 2022); $81.3M (2017); $71.5M (1998); ~$70M private offer (NYT May 2023).</li>
+        <li><strong>Wages now:</strong> BLS CPS 2025 — $1,204/wk median; BLS OEWS May 2025 — $69,770 mean.</li>
+      </ol>
+      <p><a href="METHODS.md">Read METHODS.md</a> · <a href="SOURCES.md">SOURCES.md</a> · <a href="data/figures.json">figures.json</a></p>
     </section>
   </main>
 
   <footer>
-    <p>* Then: 400 francs (Red Vineyard sale, 1890) ≈ $80. Now: ~$70M benchmark (record $117.2M, 2022). See METHODS.md.</p>
+    <p><strong>Museum vs. The Street</strong> — pop-art infographic. Built with zero deps. Data: <code>data/figures.json</code>. Methods: <code>METHODS.md</code>.</p>
+    <p>* Then: 400 francs (Red Vineyard, 1890) ≈ $80. Now: ~$70M benchmark (record $117.2M, 2022). The Potato Eaters itself is collection-held &amp; priceless.</p>
   </footer>
 
   <script src="script.js"></script>
