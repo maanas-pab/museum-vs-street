@@ -107,10 +107,129 @@ main { max-width: 1080px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
 .then-fill { background: var(--teal); }
 .now-fill { background: var(--red); }
 
+.hero-badges { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+.badge {
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  padding: .25rem .8rem;
+  font-size: .8rem;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.ticker {
+  background: var(--ink);
+  color: var(--gold);
+  overflow: hidden;
+  border-bottom: 6px solid var(--ink);
+  white-space: nowrap;
+  font-size: .85rem;
+  padding: .4rem 0;
+}
+.ticker-inner { display: inline-block; animation: tick 30s linear infinite; }
+@keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.story { margin: 1.5rem 0; display: grid; gap: 1rem; }
+.speech {
+  border: 4px solid var(--ink);
+  border-radius: 16px;
+  background: #fff;
+  padding: 1rem 1.2rem;
+  font-family: Georgia, serif;
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.speech.alt { background: var(--blue); color: #fff; transform: rotate(.5deg); }
+.speech.alt strong { color: var(--gold); }
+
+.stat-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.stat {
+  border: 4px solid var(--ink);
+  text-align: center;
+  padding: .8rem;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+.stat.wow { background: var(--red); color: #fff; transform: scale(1.04) rotate(-1deg); }
+.stat .num { display: block; font-size: 2rem; }
+.stat .lbl { font-family: Georgia, serif; font-size: .85rem; }
+
+.viz-card {
+  border: 5px solid var(--ink);
+  border-radius: 18px;
+  background: #fff;
+  padding: 1.2rem;
+  margin: 1.5rem 0;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+.viz-head h2 { margin: 0; text-transform: uppercase; }
+.viz-head p, .micro { font-family: Georgia, serif; }
+.micro { font-size: .82rem; opacity: .85; }
+
+.controls { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; font-family: Georgia, serif; }
+.controls input[type="range"] { width: 220px; accent-color: var(--red); }
+
+.bread-grid { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 1rem; }
+.pill { background: var(--ink); color: #fff; font-size: .7rem; padding: .15rem .5rem; border-radius: 999px; }
+.pill.hot { background: var(--red); }
+.loaf-wall {
+  min-height: 60px;
+  border: 3px dashed var(--ink);
+  border-radius: 12px;
+  padding: .5rem;
+  font-size: 1.3rem;
+  line-height: 1.3;
+  background: #fffbeb;
+  word-break: break-all;
+}
+.loaf-wall.tall { background: #fef2f2; max-height: 220px; overflow: auto; }
+.mini-bars { display: grid; gap: .6rem; font-family: Georgia, serif; font-size: .9rem; }
+
+.house-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 1rem; }
+.house-wall { font-size: 1.4rem; line-height: 1.4; border: 3px dashed var(--ink); border-radius: 12px; padding: .5rem; background: #eff6ff; max-height: 220px; overflow: auto; }
+.house-row { font-size: 2rem; }
+.frac-note { font-family: Georgia, serif; font-size: .9rem; }
+
+.calc {
+  margin-top: 1rem;
+  border: 4px solid var(--ink);
+  border-radius: 14px;
+  padding: 1rem;
+  background: var(--gold);
+}
+.calc input, .calc button {
+  font: inherit;
+  border: 3px solid var(--ink);
+  border-radius: 10px;
+  padding: .4rem .6rem;
+}
+.calc button { background: var(--red); color: #fff; cursor: pointer; box-shadow: 3px 3px 0 var(--ink); }
+.calc button:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+.calc-out { font-size: 1.1rem; background: #fff; border: 3px solid var(--ink); border-radius: 10px; padding: .6rem; }
+
+.sources-strip {
+  border: 5px solid var(--ink);
+  border-radius: 18px;
+  background: #f5f3ff;
+  padding: 1.2rem;
+  box-shadow: 8px 8px 0 var(--ink);
+  font-family: Georgia, serif;
+}
+.sources-strip h2 { font-family: Impact, sans-serif; margin-top: 0; }
+
 footer {
   border-top: 6px solid var(--ink);
   padding: 1rem;
   font-family: Georgia, serif;
   font-size: .9rem;
   background: #fff;
+}
+
+@media (max-width: 860px) {
+  .panels, .bread-grid, .house-grid, .stat-strip { grid-template-columns: 1fr; }
+  h1 { text-shadow: 3px 3px 0 #fff, 6px 6px 0 var(--red); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-inner { animation: none; }
 }
