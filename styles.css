@@ -15,6 +15,21 @@
 
 * { box-sizing: border-box; }
 
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  background: var(--ink);
+  color: #fff;
+  padding: .5rem 1rem;
+  z-index: 10;
+}
+.skip-link:focus { left: .5rem; top: .5rem; }
+
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 2px;
+}
+
 body {
   margin: 0;
   background: var(--paper);
